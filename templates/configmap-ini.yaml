@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.ini.configmap }}
+data:
+{{- $path := printf "%s/*" .Values.configmapini.path }}
+{{ (.Files.Glob $path).AsConfig | indent 2 }}
