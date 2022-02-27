@@ -3,11 +3,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ .Values.mqsc.configmap }}
+  namespace: {{ .Values.mqsc.namespace }}
 data:
-{{- if eq .Values.security true }}
-{{- $path := printf "%s/*" .Values.configmap.pathWithSecurity }}
-{{ (.Files.Glob $path).AsConfig | indent 2 }}
-{{ else }}
 {{- $path := printf "%s/*" .Values.configmap.path }}
 {{ (.Files.Glob $path).AsConfig | indent 2 }}
-{{ end }}
