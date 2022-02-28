@@ -7,3 +7,4 @@ data:
 {{- if eq .Values.ini.enable true }}
 {{- $path := printf "%s/*" .Values.configmapini.path }}
 {{ (.Files.Glob $path).AsConfig | indent 2 }}
+{{end}}
