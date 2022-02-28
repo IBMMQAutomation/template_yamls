@@ -13,5 +13,6 @@ ini:
   configmap: qm-ini
   name: qm.ini
   namespace: mq
+  enable: false
 configmapini:
   path: ini
